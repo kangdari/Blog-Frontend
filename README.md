@@ -82,5 +82,7 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     LoginForm에서 props로 넣어주었던 값들을  components/auth/AuthForm 컴포넌트에서 사용하도록 수정
 
+    위와 같은 방법으로 RegisterForm 컨테이너 컴포넌트를 작성하고 수정할 부분 수정
+
 
 
