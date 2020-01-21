@@ -25,3 +25,14 @@
 4. Button 컴포넌트
 
     Button 컴포넌트 작성 및 글로벌 스타일 수정(index.css)
+
+5. 리덕스 적용
+
+    필요한 라이브러리 설치
+
+    $ yarn add redux react-redux redux-actions immer redux-devtools-extension
+
+    src/modules/auth.js 파일 작성 : 리덕스 모듈 (Duck 패턴: 작성 액션 타입 + 액션 생성 함수 + 리듀서)
+
+    모듈 파일 작성, 루트 리듀서, index.js에서 스토어 생성, Provider 적용
+
