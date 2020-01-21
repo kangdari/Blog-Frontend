@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
 
-const LoginForm = () => {
+const RegisterForm = () => {
     const dispatch = useDispatch();
     const { form } = useSelector(({ auth }) => ({
         form: auth.register,
@@ -47,4 +47,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default RegisterForm;
