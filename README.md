@@ -104,6 +104,8 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     package.json 파일 수정
 
+    ● 더 쉬운 요청 API 요청 상태 관리
 
+    redux-sage를 통해 더 쉽게 API를 요청할 수 있도록 loadin 리덕스 모듈과 createRequestSaga 유틸 함수 설정
 
 
