@@ -66,7 +66,21 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     AuthForm에서 type props에 따라 다른 내용이 보이도록 수정.
 
+4. 리덕스로 폼 상태관리
 
+    회원가입과 로그인 폼의 상태를 관리하는 방법
+
+    modules/auth 모듈 수정
+
+    src/containers/LoginForm.js 작성 > 컨테이너 컴포넌트 작성 > 2개의 hook을 사용해 리덕스와 연동
+
+    useDispatch: 컴포넌트 내부에서 dispatch를 사용하게 해주는 hook
+
+    useSelector: connect 함수를 사용하지 않고도 리덕스의 상태 조회 가능
+
+    pages/LoginPage 컴포넌트에서 기존 AuthForm을 컨테이너 컴포넌트인 LoginForm으로 수정
+
+    LoginForm에서 props로 넣어주었던 값들을  components/auth/AuthForm 컴포넌트에서 사용하도록 수정
 
 
 
