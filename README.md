@@ -50,5 +50,8 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     .'js'에 대한 파일 연결 구성 > JavascriptReact
 
+2. AuthTemplate 완성
+
+3. AuthForm 완성
 
 
