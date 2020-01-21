@@ -22,3 +22,6 @@
 
     $ yarn add styled-components // styled-components 사용
 
+4. Button 컴포넌트
+
+    Button 컴포넌트 작성 및 글로벌 스타일 수정(index.css)
