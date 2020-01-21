@@ -36,3 +36,19 @@
 
     모듈 파일 작성, 루트 리듀서, index.js에서 스토어 생성, Provider 적용
 
+## 회원가입, 로그인 구현
+
+src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작성
+
+1. UI 준비
+
+    AuthForm, AuthFormTemplate 컴포넌트 작성
+
+    [Snippet](https://snippet-generator.app/) ${TM_FILENAME_BASE}: 확장자를 제외한 파일 이름
+
+    파일 > 기본 설정 > 사용자 코드 조각 > javascriptreact > Snippet 저장 
+
+    .'js'에 대한 파일 연결 구성 > JavascriptReact
+
+
+

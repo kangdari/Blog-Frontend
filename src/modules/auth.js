@@ -1,4 +1,4 @@
-import { createAction, handleActions, handleAction } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 
 // 액션 타입 선언
 const SAMPLE_ACTION = 'auth/SAMPLE_ACTION';
