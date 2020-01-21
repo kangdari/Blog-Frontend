@@ -50,8 +50,23 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     .'js'에 대한 파일 연결 구성 > JavascriptReact
 
+    HTML5 iput 태그 authComplete 속성 : Form을 자동으로 입력해주는 기능으로 name 속성을 기준으로 작동함.
+
 2. AuthTemplate 완성
 
 3. AuthForm 완성
+
+    AuthForm 컴포넌트에서 Button 컴포넌트 작성 시 
+
+    ```
+        <Button cyan fullWidth style={{ marginTop: '1rem' }}>로그인</Button>
+    ```
+    
+    Button 컴포넌트에 cyan, fuillWidth, sytle props를 전달 > 다른 스타일이 적용됨.
+
+    AuthForm에서 type props에 따라 다른 내용이 보이도록 수정.
+
+
+
 
 
