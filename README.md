@@ -213,3 +213,19 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     ● Header 컴포넌트 작성, PostListPage에서 렌더링
 
+    ● 로그인 버튼을 누르면 /login 페이지로 이동 시키기. Link 컴포넌트를 사용하는 방법
+
+        Button 컴포넌트 내부에서 props.to 값에 따라 StyledLink, StyledButton 사용할지 결정됨.
+
+        Header 컴포넌트에서 사용한 Button 컴포넌트는 to 속성이 존재하므로 StyledLink를 사용함.
+
+        StyledLink를 사용하는 과정에서 props.cyan 값을 숫자 1, 0 으로 변환 해줌.
+
+        이는 styled() 함수로 감싸서 만든 컴포넌트의 경우 임의 props가 자동으로 필터링되지 않기 때문..
+
+        Link에서 사용하는 a 태그에 boolean의 값이 임의 props로 설정되는 것을 허용 x 
+        
+        숫자 / 문자열만 허용하기 때문에 숫자형으로 변환해줌
+        
+        AuthForm 컴포넌트에서 사용한 Button 컴포넌트는 to 속성이 없으므로 StyledButton 사용
+

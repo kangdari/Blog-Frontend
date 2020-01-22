@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Responsive from './Responsive';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 const HeaderBlock = styled.div`
     position: fixed;
@@ -16,36 +17,37 @@ const Wrapper = styled(Responsive)`
     display: flex;
     align-items: center;
     justify-content: space-between; // 자식 엘리멘트 사이 여백 최대화
-    .logo{
+    .logo {
         font-size: 1.125rem;
         font-weight: 800;
         letter-spacing: 2px;
     }
-    .right{
+    .right {
         display: flex;
         align-items: right;
     }
 `;
 
-// 헤더가 fixed로 되어 있기 때문에 페이지의 콘텐츠가 4rem 아래에 나타나도록 해 주는 
+// 헤더가 fixed로 되어 있기 때문에 페이지의 콘텐츠가 4rem 아래에 나타나도록 해 주는
 const Spacer = styled.div`
     height: 4rem;
 `;
 
 const Header = () => {
-    return(
+    return (
         <>
             <HeaderBlock>
                 <Wrapper>
-                    <div className="logo">REATERS</div>    
+                    <Link to='/' className="logo">REATERS</Link>
                     <div className="right">
-                        <Button>로그인</Button>    
-                    </div>    
-                </Wrapper>    
-            </HeaderBlock>;
-            <Spacer/>
+                        <Button to='/login'>로그인</Button>
+                    </div>
+                </Wrapper>
+            </HeaderBlock>
+            ;
+            <Spacer />
         </>
-    ) 
+    );
 };
 
 export default Header;
