@@ -80,10 +80,10 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
                         value={form.passwordConfirm}
                     />
                 )}
+                <Button cyan fullWidth style={{ marginTop: '1rem' }}>
+                    {text}
+                </Button>
             </form>
-            <Button cyan fullWidth style={{ marginTop: '1rem' }}>
-                로그인
-            </Button>
             <Footer>
                 {type === 'register' ? (
                     <Link to="/login">로그인</Link>

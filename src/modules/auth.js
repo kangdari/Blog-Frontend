@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
-import { takeLatest } from 'redux-saga/effects'; 
+import { takeLatest } from 'redux-saga/effects';
 import createRequestSaga from '../lib/createRequestSaga';
 import * as authAPI from '../lib/api/auth';
 
@@ -32,13 +32,13 @@ export const register = createAction(REGISTER, ({ username, password }) => ({
 }));
 export const login = createAction(LOGIN, ({ username, password }) => ({
     username,
-    password
-}))
+    password,
+}));
 
 // 사가 생성
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
-export function* authSaga(){
+export function* authSaga() {
     yield takeLatest(REGISTER, registerSaga); // 가장 마지막 작업만 수행
     yield takeLatest(LOGIN, loginSaga);
 }
@@ -72,11 +72,11 @@ const auth = handleActions(
             [form]: initialState[form],
             authError: null, // 폼 전환 시 회원 인증 에러 초기화
         }),
-        // 회원 가입 성공
+        // 회원가입 성공
         [REGISTER_SUCCESS]: (state, { payload: auth }) => ({
             ...state,
-            authError: null,
             auth,
+            authError: null,
         }),
         // 회원 가입 실패
         [REGISTER_FAILURE]: (state, { payload: error }) => ({
@@ -86,8 +86,8 @@ const auth = handleActions(
         // 로그인 성공
         [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
             ...state,
-            authError: null,
             auth,
+            authError: null,
         }),
         // 로그인 실패
         [LOGIN_FAILURE]: (state, { payload: error }) => ({

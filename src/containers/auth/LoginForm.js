@@ -26,6 +26,7 @@ const LoginForm = () => {
 
     // 폼 등록 이벤트 핸들러
     const onSubmit = e => {
+        console.log('click')
         e.preventDefault();
         //
     };
