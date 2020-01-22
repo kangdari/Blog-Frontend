@@ -68,7 +68,7 @@ const RegisterForm = ({ history }) => {
             // console.log('check API 성공');
             // console.log(user);
         }
-    }, [user]);
+    }, [history, user]);
 
     // 렌더링
     return (

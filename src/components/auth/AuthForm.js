@@ -58,7 +58,7 @@ const ErrorMessage = styled.div`
     margin-top: 1rem;
 `;
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
     const text = textMap[type];
     return (
         <AuthFormBlock>
@@ -89,8 +89,8 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
                         value={form.passwordConfirm}
                     />
                 )}
-                {/* 에러 메세지 */}
-                <ErrorMessage>에러 발생!</ErrorMessage>
+                {/* props로 전달받은 error 값에 따른 에러 메세지 출력*/}
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <Button cyan fullWidth style={{ marginTop: '1rem' }}>
                     {text}
                 </Button>

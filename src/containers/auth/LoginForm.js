@@ -1,5 +1,5 @@
 // 리덕스와 연동을 위한 컨테이너 컴포넌트
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm, login } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
@@ -7,6 +7,9 @@ import { check } from '../../modules/user';
 import { withRouter } from 'react-router-dom';
 
 const LoginForm = ({ history }) => {
+    // error state 관리를 위해 useState hook 사용
+    const [error, setError] = useState(null);
+
     const dispatch = useDispatch();
     const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
         form: auth.login,
@@ -45,6 +48,7 @@ const LoginForm = ({ history }) => {
         if (authError) {
             console.log('오류 발생');
             console.log(authError);
+            setError('로그인 실패')
             return;
         }
         if (auth) {
@@ -54,6 +58,8 @@ const LoginForm = ({ history }) => {
         }
     }, [auth, authError, dispatch]);
 
+    // 유저 값이 설정되어 있으면 홈 화면으로
+    // 로그인 상태라면 홈 화면으로
     useEffect(() => {
         if (user) {
             history.push('/');
@@ -67,6 +73,7 @@ const LoginForm = ({ history }) => {
             form={form}
             onChange={onChange}
             onSubmit={onSubmit}
+            error={error}
         />
     );
 };

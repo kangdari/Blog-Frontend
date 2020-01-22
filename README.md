@@ -192,3 +192,5 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 8. 회원 인증 에러 처리
 
     check, 회원 인증 요청이 실패했을 경우 에러 메세지를 보여주는 UI 작업
+
+    LoginForm 에서 에러 처리, useState를 사용하여 error 상태 처리, 인증 에러 발생 시 error 상태를 수정하고, error 값을 props로 전달
