@@ -2,6 +2,69 @@
 
 리액트 프로젝트를 생성하여 Koa 프레임워크로 만든 서버에 연동하여 작업.
 
+### 디렉토리 정리
+
+● src
+
+    components
+
+        auth
+
+            AuthForm.js // 회원가입 or 로그인 form 을 보여줌.
+
+            AuthTemplate.js // 회원가입 or 로그인 레이아웃 담당
+
+        base
+
+            Header.js //
+
+        common    
+
+            Button.js // 공통으로 사용되는 Button UI
+
+    containers // 리덕스와 연동을 위한 컴포넌트
+
+        auth
+
+            LoginForm.js // 로그인 컨테이너 컴포넌트
+
+            RegisterFrom.js // 회원가입 컨테이너 컴포넌트
+
+    lib
+
+        api
+
+            auth.js // API 함수 작성, 프록시로 정해 둔 백엔드 서버에 전달 예정
+
+            client.js // axios 인스턴스 생성
+        
+        styles
+
+            pallet.js // 컴포넌트 꾸밈에 사용될 색상
+
+    modules // 리덕스 관련 코드를 Ducks 패턴으로 작성
+
+        auth.js // 로그인, 회원가입
+
+        loading.js // 로딩
+
+        root.js // 여러 리듀서, 여러 Saga를 하나로 합침.
+
+        user.js // 사용자의 상태
+    
+    pages // 라우트 컴포넌트
+        
+        LoginPage.js // 로그인 
+
+        PostListPage.js // 포스트 목록
+
+        PostPage.js // 특정 포스트 읽기
+
+        RegisterPage.js // 회원가입 
+
+        WritePage.js // 글쓰기
+
+
 ### 작업 환경 준비
 
 1. 설정 파일 작성 
