@@ -14,15 +14,13 @@
 
             AuthTemplate.js // 회원가입 or 로그인 레이아웃 담당
 
-        base
-
-            Header.js //
-
         common    
 
             Button.js // 공통으로 사용되는 Button UI
 
             Responsive.js // 반응형 디자인을 위한 컴포넌트로 다양한 컴포넌트에서 사용 예정
+
+            Header.js // 포스트, 포스트 목록 페이지 상단에 위치한 컴포넌트
 
     containers // 리덕스와 연동을 위한 컴포넌트
 
@@ -212,4 +210,6 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 1. 헤더 컴포넌트 만들기
 
     ● 반응형 디자인을 위한 Responsive 컴포넌트 작성
+
+    ● Header 컴포넌트 작성, PostListPage에서 렌더링
 

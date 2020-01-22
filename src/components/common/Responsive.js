@@ -8,9 +8,9 @@ const ResponsiveBlock = styled.div`
     margin: 0 auto;
 
     // 브라우저 크기에 따른 가로 크기 변경
-    // 1024px 이하, 아이패드, 랩탑
+    // 768px ~ 1024px, 아이패드, 랩탑
     @media (max-width: 1024px) {
-        widht: 768px;
+        width: 768px;
     }
     // Mobile Device
     // 768px 이하
