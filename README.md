@@ -177,6 +177,10 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     redux-sage를 통해 더 쉽게 API를 요청할 수 있도록 loading 리덕스 모듈과 createRequestSaga 유틸 함수 설정
 
+6. 회원가입 구현
+
     ● auth 리덕스 모듈에서 API 적용, 각 API를 위한 사가 생성, 액션 생성 함수 리듀서 구현
 
     ● user 리덕스 모듈 작성 후 루트 리듀서에 포함, 회원 가입 성공 후 check를 호출하여 현재 사용자가 로그인 상태가 되었는지 확인
+
+    ● withRouter를 사용해 history 객체에 접근하여 회원 가입 후 홈 화면으로 라우트 이동. Register 컴포넌트를 withRouter 컴포넌트로 감싸줌.
