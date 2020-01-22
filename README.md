@@ -41,8 +41,14 @@
         styles
 
             pallet.js // 컴포넌트 꾸밈에 사용될 색상
+        
+        createRequestSaga.js // redux-saga 생성 : 특정 액션이 디스패치되었을 때 정해진 로직에 따른 액션을 디스패치 시키는 규칙을 작성하여 비동기 작업 처리
+        
+            put : redux의 dispatch 함수와 동일, 결과를 스토어에 dispatch > reducer 실행
 
-    modules // 리덕스 관련 코드를 Ducks 패턴으로 작성
+            call : call(fn, ...args) 함수 fn를 args 인수로 호출
+
+    modules // 리덕스 관련 코드를 Ducks 패턴으로 작성한 모듈
 
         auth.js // 로그인, 회원가입
 
@@ -50,7 +56,7 @@
 
         root.js // 여러 리듀서, 여러 Saga를 하나로 합침.
 
-        user.js // 사용자의 상태
+        user.js // 사용자의 상태를 담는 리덕스 모듈
     
     pages // 라우트 컴포넌트
         
@@ -173,3 +179,4 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     ● auth 리덕스 모듈에서 API 적용, 각 API를 위한 사가 생성, 액션 생성 함수 리듀서 구현
 
+    ● user 리덕스 모듈 작성 후 루트 리듀서에 포함, 회원 가입 성공 후 check를 호출하여 현재 사용자가 로그인 상태가 되었는지 확인

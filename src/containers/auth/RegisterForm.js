@@ -3,14 +3,16 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm, register } from '../../modules/auth'; // 액션 생성 함수
 import AuthForm from '../../components/auth/AuthForm';
+import { check } from '../../modules/user';
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
-    const { form, auth, authError } = useSelector(({ auth }) => ({
+    const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
         // state.auth.~
         form: auth.register,
         auth: auth.auth,
         authError: auth.authError,
+        user: user.user,
     }));
 
     // 인풋 변경 인벤트 핸들러
@@ -54,8 +56,16 @@ const RegisterForm = () => {
         if (auth) {
             console.log('회원가입 성공');
             console.log(auth);
+            dispatch(check()); // check 액션 생성 함수 디스패치
         }
-    }, [auth, authError]);
+    }, [auth, authError, dispatch]);
+
+    useEffect(() => {
+        if (user) {
+            console.log('check API 성공');
+            console.log(user);
+        }
+    }, [user]);
 
     // 렌더링
     return (
