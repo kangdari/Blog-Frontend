@@ -22,6 +22,8 @@
 
             Button.js // 공통으로 사용되는 Button UI
 
+            Responsive.js // 반응형 디자인을 위한 컴포넌트로 다양한 컴포넌트에서 사용 예정
+
     containers // 리덕스와 연동을 위한 컴포넌트
 
         auth
@@ -105,7 +107,7 @@
 
     모듈 파일 작성, 루트 리듀서, index.js에서 스토어 생성, Provider 적용
 
-## 회원가입, 로그인 구현
+### 회원가입, 로그인 구현
 
 src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작성
 
@@ -202,3 +204,12 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
         ● password와 passwordConfirm 값이 일치하지 않을 때
 
         ● username이 중복될 때 (authError.response.status === 409)
+
+### 헤더 컴포넌트 생성 및 로그인 유지
+
+    로그인 후에 새로고침을 해도 로그인이 유지되는 기능 구현.
+
+1. 헤더 컴포넌트 만들기
+
+    ● 반응형 디자인을 위한 Responsive 컴포넌트 작성
+
