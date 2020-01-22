@@ -194,3 +194,11 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     check, 회원 인증 요청이 실패했을 경우 에러 메세지를 보여주는 UI 작업
 
     LoginForm 에서 에러 처리, useState를 사용하여 error 상태 처리, 인증 에러 발생 시 error 상태를 수정하고, error 값을 props로 전달
+
+    RegisterForm 에서 에러처리
+
+        ● username, password, passwordConfirm 중 하나라도 비어 있을 때 ( Array.includes('') 배열의 요소들이 공백 값을 가지고 있는지 확인)
+
+        ● password와 passwordConfirm 값이 일치하지 않을 때
+
+        ● username이 중복될 때 (authError.response.status === 409)
