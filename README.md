@@ -22,6 +22,10 @@
 
             Header.js // 포스트, 포스트 목록 페이지 상단에 위치한 컴포넌트
 
+        write
+
+            Editor.js // 제목과 내용 입력, Quill 에디터 사용
+
     containers // 리덕스와 연동을 위한 컴포넌트
 
         auth
@@ -261,4 +265,16 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     로그아웃 API 작성 > user 모듈 LOGOUT 액션 생성, LOGOUT 액션 디스패치 시 로그아웃 API 호출과 localStorage user 삭제 , 리듀서 LOGOUT 추가하여 스터어 상태 변화 관리 > HeaderContainer 컴포넌트에서 logout 함수를 디스패치하는 onLogout 함수 작성 후 Header 컴포넌트에 전달 >
     Header 컴포넌트에서서 onLogout 함수를 로그아웃 버튼에서 호출하도록 설정
+
+* * *
     
+## 글쓰기 기능 구현
+
+    글쓰기 페이지 기능을 구현하겠습니다. 글쓰기에 관련된 컴포넌트들은 write라는 이름으로 분류.
+
+### 에디터 UI 구현
+
+    $ yarn add quill // Quill 라이브러리 사용 - react rich text editor
+
+    (https://quilljs.com/docs/modules/toolbar/)
+
