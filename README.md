@@ -67,6 +67,8 @@
         root.js // 여러 리듀서, 여러 Saga를 하나로 합침.
 
         user.js // 사용자의 상태를 담는 리덕스 모듈
+
+        write.js // 글쓰기 관련 상태를 관리하는 리덕스 모듈
     
     pages // 라우트 컴포넌트
         
@@ -297,3 +299,7 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     ● WriteActionButton 컴포넌트
 
     포스트 작성 및 취소 두 개의 버튼을 만들고 onPublish, onCancel이라는 props를 받아와 사용
+
+## 리덕스로 글쓰기 상태 관리
+
+    write 모듈 작성 및 루트 리듀서에 연결

@@ -6,10 +6,9 @@ const WriteActionButtonBlock = styled.div`
     margin-top: 1rem;
     margin-bottom: 3rem;
     button + button {
-        margin-left: 0.5rem
+        margin-left: 0.5rem;
     }
 `;
-
 
 // TagBox 에서 사용하는 버튼과 일치하는 높이로 설정 후 서로 간의 여백 설정
 const StyleButton = styled(Button)`
@@ -18,7 +17,6 @@ const StyleButton = styled(Button)`
         margin-left: 0.5rem;
     }
 `;
-
 
 const WriteActionButton = ({ onCancel, onPublish }) => {
     return (
