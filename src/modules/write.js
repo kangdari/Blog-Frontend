@@ -6,7 +6,7 @@ const CHANGE_FILED = 'write/CHANGE_FILED'; // 특정 key 바꾸기
 
 // 액션 생성 함수
 export const initialize = createAction(INITIAILIZE);
-export const changeFiled = createAction(CHANGE_FILED, ({ key, value }) => ({
+export const changeField = createAction(CHANGE_FILED, ({ key, value }) => ({
     key,
     value,
 }));

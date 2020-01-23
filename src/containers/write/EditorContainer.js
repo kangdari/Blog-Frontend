@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import Editor from '../../components/write/Editor';
 import { useSelector, useDispatch } from 'react-redux';
-import { initialize, changeFiled } from '../../modules/write';
+import { initialize, changeField } from '../../modules/write';
 
 const EditorContainer = () => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const EditorContainer = () => {
         body: write.body,
     }));
     const onChangeField = useCallback(
-        payload => dispatch(changeFiled(payload)),
+        payload => dispatch(changeField(payload)),
         [dispatch],
     );
     // 언마운트될 때 초기화 = write 관련 상태 초기화

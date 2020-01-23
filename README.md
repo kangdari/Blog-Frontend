@@ -44,6 +44,8 @@
 
             EditorContainer.js // title, body 값을 리덕스 스토어에서 불러와 Editor 컴포넌트에 전달 or 함수 전달
 
+            TagBoxContainer.js // TagBox를 위한 컨테이너 컴포넌트
+
     lib
 
         api
@@ -311,3 +313,10 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     1. EditorContainer 
     
     title, body 값을 리덕스 스토어에서 불러와 Editot 컴포넌트에 전달. 참고로 Quill 에디터는 일반 input, textarea가 아니기 때문에 onChange와 value 값을 사용해 상태 관리를 할 수 없다.
+
+    2. TagBoxContainer
+
+    TagBox를 위한 컨테이너 컴포넌트
+
+    TagBox 컴포넌트에서 setLocalTags를 호출해야 하는 상황에서 onChangeTags도 함께 호출. 또 props로 받아 온 tags가 바뀔 때 setLocalTags를 호출.
+    이로써 TagBox 컴포넌트 내부에서 상태가 바뀌면 리덕스 스토에도 반영되고, 리덕스 스토어에 있는 값이 바뀌게 되면 TagBox 컴포넌트 내부의 상태도 변화
