@@ -30,6 +30,10 @@
 
             RegisterFrom.js // 회원가입 컨테이너 컴포넌트
 
+        common
+
+            HeaderContainer.js // 헤더 컴포넌트에 리덕스 연동하는 컨테이너 컴포넌트
+
     lib
 
         api
@@ -224,8 +228,13 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
         이는 styled() 함수로 감싸서 만든 컴포넌트의 경우 임의 props가 자동으로 필터링되지 않기 때문..
 
         Link에서 사용하는 a 태그에 boolean의 값이 임의 props로 설정되는 것을 허용 x 
-        
+
         숫자 / 문자열만 허용하기 때문에 숫자형으로 변환해줌
         
         AuthForm 컴포넌트에서 사용한 Button 컴포넌트는 to 속성이 없으므로 StyledButton 사용
 
+2. 로그인 상태 보여주고 유지
+
+    ● 로그인 상태 보여주기
+    
+    헤더 컴포넌트에 리덕스 연결. HeaderContainer 컴포넌트 작성
