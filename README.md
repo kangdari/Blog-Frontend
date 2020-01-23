@@ -293,3 +293,7 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     리렌더링되지 않고, 실제로 추가되거나 삭제되는 태그에만 영향을 줍니다.
 
     hooks를 사용하여 태그를 추가하고 제거하는 기능 구현
+
+    ● WriteActionButton 컴포넌트
+
+    포스트 작성 및 취소 두 개의 버튼을 만들고 onPublish, onCancel이라는 props를 받아와 사용
