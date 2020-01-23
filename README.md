@@ -40,6 +40,10 @@
 
             HeaderContainer.js // 헤더 컴포넌트에 리덕스 연동하는 컨테이너 컴포넌트
 
+        write
+
+            EditorContainer.js // title, body 값을 리덕스 스토어에서 불러와 Editor 컴포넌트에 전달 or 함수 전달
+
     lib
 
         api
@@ -303,3 +307,7 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 ## 리덕스로 글쓰기 상태 관리
 
     write 모듈 작성 및 루트 리듀서에 연결
+
+    1. EditorContainer 
+    
+    title, body 값을 리덕스 스토어에서 불러와 Editot 컴포넌트에 전달. 참고로 Quill 에디터는 일반 input, textarea가 아니기 때문에 onChange와 value 값을 사용해 상태 관리를 할 수 없다.
