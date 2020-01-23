@@ -16,10 +16,20 @@ export const check = createAction(CHECK);
 
 // redux-saga 생성 (action type, func) API 함수 호출
 const checkSaga = createRequestSaga(CHECK, authAPI.check); // 제너레이션 함수 반환
+
+function checkFailureSaga(){
+    try{
+        localStorage.removeItem('user');
+    }catch(e){
+        console.log('localStorage is not working');
+    }
+}
+
 // 제너레이션 함수 = Saga
 export function* userSaga() {
     // (action type, 특정 작업)
     yield takeLatest(CHECK, checkSaga); // 가장 마지막 실행된 작업만 실행
+    yield takeLatest(CHECK_FAILURE, checkFailureSaga); // CHECK_FAILURE 액션 발생 시 localStorage의 user값을 초기화
 }
 
 const initialState = {
