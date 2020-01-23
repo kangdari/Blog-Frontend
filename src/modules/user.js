@@ -14,7 +14,7 @@ const CHECK_FAILURE = 'user/CHECK_FAILURE';
 export const tempSetUser = createAction(TEMP_SET_USER, user => user);
 export const check = createAction(CHECK);
 
-// redux-saga 생성 (action type, func)
+// redux-saga 생성 (action type, func) API 함수 호출
 const checkSaga = createRequestSaga(CHECK, authAPI.check); // 제너레이션 함수 반환
 // 제너레이션 함수 = Saga
 export function* userSaga() {

@@ -83,8 +83,11 @@ const RegisterForm = ({ history }) => {
     useEffect(() => {
         if (user) {
             history.push('/'); // 홈 화면 이동
-            // console.log('check API 성공');
-            // console.log(user);
+            try {
+                localStorage.setItem('user', JSON.stringify(user));
+            } catch (e) {
+                console.log('localStorage is not working');
+            }
         }
     }, [history, user]);
 
