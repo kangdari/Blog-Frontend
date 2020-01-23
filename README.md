@@ -257,4 +257,8 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     user 모듈에서 checkFailureSaga() 함수를 만들어서 CHECK_FAILURE 액션이 발생했을 때 이 함수를 호출하여 localStorage의
     user값을 초기화.
 
+3. 로그아웃 기능 구현
+
+    로그아웃 API 작성 > user 모듈 LOGOUT 액션 생성, LOGOUT 액션 디스패치 시 로그아웃 API 호출과 localStorage user 삭제 , 리듀서 LOGOUT 추가하여 스터어 상태 변화 관리 > HeaderContainer 컴포넌트에서 logout 함수를 디스패치하는 onLogout 함수 작성 후 Header 컴포넌트에 전달 >
+    Header 컴포넌트에서서 onLogout 함수를 로그아웃 버튼에서 호출하도록 설정
     
