@@ -22,6 +22,10 @@
 
             Header.js // 포스트, 포스트 목록 페이지 상단에 위치한 컴포넌트
 
+        post
+        
+            PostViewer.js // 작성한 포스트를 읽는 페이지 UI
+
         write
 
             Editor.js // 제목과 내용 입력, Quill 에디터 사용
@@ -77,6 +81,8 @@
         user.js // 사용자의 상태를 담는 리덕스 모듈
 
         write.js // 글쓰기 관련 상태를 관리하는 리덕스 모듈
+
+        post.js // 작성된 글(포스트) 상태를 관리하는 리덕스 모듈, 조회
     
     pages // 라우트 컴포넌트
         
@@ -346,3 +352,9 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     리액트에서 <div>{html}<div> 와 같이 HTML을 그대로 렌더링하는 형태로 JSX를 작성하면 HTML 태그가 적용되지 않고 
     일반 텍스트 형태로 나타남. 따라서 HTML을 적용하고 싶다면 dangerouslySetInnerHTML이라는 props 설정이 필요함.
+
+    2. API 연동
+
+    API를 연동하여 실제 데이터를 보여주도록 파일 수정, readPost 함수 추가(lib/api/posts)
+
+    post 리덕스 모듈 작성 > 루트 리듀서, 루트 사가 등록

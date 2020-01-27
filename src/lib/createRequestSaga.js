@@ -1,6 +1,12 @@
 import { call, put } from 'redux-saga/effects';
 import { startLoading, finishLoading } from '../modules/loading';
 
+export function createRequestActionTypes(type) {
+    const SUCCESS = `${type}_SUCCESS`;
+    const FAILURE = `${type}_FAILURE`;
+    return [type, SUCCESS, FAILURE];
+};
+
 // request = API 함수
 export default function createRequestSaga(type, request) {
     const SUCCESS = `${type}_SUCCESS`;
@@ -28,5 +34,3 @@ export default function createRequestSaga(type, request) {
         yield put(finishLoading(type)); // 로딩 끝
     };
 }
-
-
