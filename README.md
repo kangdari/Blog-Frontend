@@ -332,3 +332,17 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     포스트 작성 후 등록 버튼 클릭 시 /@${user.username}/${_id} 로 페이지 이동이 되며 리덕스 개발자 도구에서 write/WRITE_POST_SUCCESS에서
     포스트 데이터가 확인 됨.
 
+## 포스트 조회 기능 구현
+
+    ● 하나의 포스트 읽기 기능
+
+    ● 여러 포스트를 조회하는 포스트 목록 기능
+
+### 포스트 읽기 페이지 구현
+
+    1. PostViewer UI 준비
+
+    포스트 제목, 태그, 작성자 명, 제목, 작성된 시간, 내용
+
+    리액트에서 <div>{html}<div> 와 같이 HTML을 그대로 렌더링하는 형태로 JSX를 작성하면 HTML 태그가 적용되지 않고 
+    일반 텍스트 형태로 나타남. 따라서 HTML을 적용하고 싶다면 dangerouslySetInnerHTML이라는 props 설정이 필요함.
