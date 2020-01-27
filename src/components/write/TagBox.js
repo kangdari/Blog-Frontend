@@ -82,8 +82,8 @@ const TagBox = ({ tags, onChangeTags }) => {
             if (!tag) return; // 공백이면 추가 x
             if (localTags.includes(tag)) return; // 이미 존재한다면 추가 x
             const nextTags = [...localTags, tag];
-            setLocalTags(nextTags);
-            onChangeTags(nextTags);
+            setLocalTags(nextTags); // 리액트 앱 상태 업데이트
+            onChangeTags(nextTags); // 리덕스 스토어의 상태 업데이트
         },
         [localTags, onChangeTags],
     );

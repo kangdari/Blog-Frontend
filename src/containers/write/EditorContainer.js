@@ -11,11 +11,13 @@ const EditorContainer = () => {
         body: write.body,
     }));
     const onChangeField = useCallback(
+        // payload = { key, value }
         payload => dispatch(changeField(payload)),
         [dispatch],
     );
     // 언마운트될 때 초기화 = write 관련 상태 초기화
     useEffect(() => {
+        // return = 언마운트
         return () => {
             dispatch(initialize());
         };

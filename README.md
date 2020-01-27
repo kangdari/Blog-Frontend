@@ -320,3 +320,9 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     TagBox 컴포넌트에서 setLocalTags를 호출해야 하는 상황에서 onChangeTags도 함께 호출. 또 props로 받아 온 tags가 바뀔 때 setLocalTags를 호출.
     이로써 TagBox 컴포넌트 내부에서 상태가 바뀌면 리덕스 스토에도 반영되고, 리덕스 스토어에 있는 값이 바뀌게 되면 TagBox 컴포넌트 내부의 상태도 변화
+
+    3. 글쓰기 API 연동
+
+    포스트에 관련된 API를 요청하는 함수를 posts.js에 작성하고 이 함수를 호출하는 리덕스 액션과 사가를 작성(module/write) , 리덕스 모듈 수정 후 writeSaga를 rootSaga에 등록(modules/root)
+
+

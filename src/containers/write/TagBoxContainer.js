@@ -5,6 +5,7 @@ import { changeField } from '../../modules/write';
 
 const TagBoxContainer = () => {
     const dispatch = useDispatch();
+    // write 모듈 스토어의 tags
     const tags = useSelector(state => state.write.tags);
     // const { tags } = useSelector(({ write }) => ({
     //     tags: write.tags,
