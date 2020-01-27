@@ -1,9 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
-import {
-    createRequestSaga,
+import createRequestSaga, {
     createRequestActionTypes,
 } from '../lib/createRequestSaga';
-import * as PostAPI from '../lib//api/posts';
+import * as postAPI from '../lib//api/posts';
 import { takeLatest } from 'redux-saga/effects';
 
 // const READ_POST = 'post/READ_POST';
@@ -24,7 +23,7 @@ export const readPost = createAction(READ_POST, id => id);
 export const unloadPost = createAction(UNLOAD_POST);
 
 // 사가 함수
-const readPostSaga = createRequestSaga(READ_POST, PostAPI.readPost);
+const readPostSaga = createRequestSaga(READ_POST, postAPI.readPost);
 export function* postSaga() {
     yield takeLatest(READ_POST, readPostSaga);
 }
@@ -45,7 +44,7 @@ const post = handleActions(
             ...state,
             error,
         }),
-        [UNLOAD_POST]: initialState,
+        [UNLOAD_POST]: () => initialState,
     },
     initialState,
 );
