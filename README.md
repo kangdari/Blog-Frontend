@@ -44,6 +44,11 @@
 
             HeaderContainer.js // 헤더 컴포넌트에 리덕스 연동하는 컨테이너 컴포넌트
 
+        post
+
+            PostViewerContainer.js // PostViewer를 위한 컨테이너 컴포넌트, 포스트의 id 값을 가져와 readPost API 함수를 호출하고
+                                    언마운트 시 unloadPost 함수를 호출해 리덕스 상태를 초기화
+
         write
 
             EditorContainer.js // title, body 값을 리덕스 스토어에서 불러와 Editor 컴포넌트에 전달 or 함수 전달
@@ -358,3 +363,7 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     API를 연동하여 실제 데이터를 보여주도록 파일 수정, readPost 함수 추가(lib/api/posts)
 
     post 리덕스 모듈 작성 > 루트 리듀서, 루트 사가 등록
+
+    PostViewer를 위한 컨테이너 컴포넌트 PostViewerContainer 컴포넌트 작성
+
+    withRouter는 match 객체를 사용하기 위해서 불러 사용(URL 파라미터로 받아온 id 값 조회 필요)

@@ -50,3 +50,4 @@ const post = handleActions(
 );
 
 export default post;
+
