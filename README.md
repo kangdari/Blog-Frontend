@@ -46,6 +46,8 @@
 
             TagBoxContainer.js // TagBox를 위한 컨테이너 컴포넌트
 
+            WriteActionButtonsContainers.js // write 리덕스 모듈의 상태를 조회하고 포스트 작성 or 취소 시 할 작업에 대한 함수 작성
+
     lib
 
         api
@@ -325,4 +327,8 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     포스트에 관련된 API를 요청하는 함수를 posts.js에 작성하고 이 함수를 호출하는 리덕스 액션과 사가를 작성(module/write) , 리덕스 모듈 수정 후 writeSaga를 rootSaga에 등록(modules/root)
 
+    WriteActionBUttonsContainer 컴포넌트를 작성해 리덕스와 연동하고 WritePage 컴포넌트에서 기존의 WirteActionButton을 WriteActionBUttonsContainer 컴포넌트로 수정
+
+    포스트 작성 후 등록 버튼 클릭 시 /@${user.username}/${_id} 로 페이지 이동이 되며 리덕스 개발자 도구에서 write/WRITE_POST_SUCCESS에서
+    포스트 데이터가 확인 됨.
 

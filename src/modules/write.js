@@ -32,7 +32,7 @@ export function* writeSaga() {
 
 const initialState = {
     title: '',
-    body: '',
+    body: '',   
     tags: [],
     post: null,
     postError: null,
@@ -54,6 +54,7 @@ const write = handleActions(
             postError: null,
         }),
         // 포스트 작성 성공
+        // 포스트 작성 API 호출 후 결과 값이 post에 담김
         [WRITE_POST_SUCCESS]: (state, { payload: post }) => ({
             ...state,
             post,
