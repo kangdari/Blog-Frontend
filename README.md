@@ -22,6 +22,10 @@
 
             Header.js // 포스트, 포스트 목록 페이지 상단에 위치한 컴포넌트
 
+            SubInfo.js // PostList와 PostViewer에서 공통으로 사용되는 컴포넌트
+
+            Tags.js // PostList와 PostViewer에서 공통으로 사용되는 컴포넌트
+
         post
         
             PostViewer.js // 작성한 포스트를 읽는 페이지 UI
@@ -374,5 +378,7 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     1. PostList UI 준비
     
-    
+    PostViewer 컴포넌트와 중복되는 SubInfo, Tags 컴포넌트를 common 디렉토리에 분리하여 사용
+
+    계정명과 각 태그가 나타나는 부분에 Link를 사용하여 클릭 시 이동할 주소를 설정
 
