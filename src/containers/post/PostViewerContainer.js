@@ -8,6 +8,7 @@ const PostViewerContainer = ({ match }) => {
     const dispatch = useDispatch();
     // 처음 마운트될 때 포스트 읽기 API 요청
     const { postId } = match.params;
+    // post, loading 모듈
     const { post, error, loading } = useSelector(({ post, loading }) => ({
         post: post.post,
         error: post.error,

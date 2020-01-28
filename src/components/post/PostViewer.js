@@ -35,7 +35,6 @@ const Tags = styled.div`
         color: ${palette.cyan[7]};
         text-decoration: none;
         margin-right: 0.5rem;
-        cursor: pointer;
         &:hover {
             color: ${palette.cyan[6]};
         }
