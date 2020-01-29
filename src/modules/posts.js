@@ -29,6 +29,7 @@ export function* postsSaga() {
 const initialState = {
     posts: null,
     error: null,
+    lastPage: 1,
 };
 // 리듀서
 const posts = handleActions(
@@ -36,6 +37,7 @@ const posts = handleActions(
         [LIST_POSTS_SUCCESS]: (state, { payload: posts }) => ({
             ...state,
             posts,
+            lastPage: parseInt(response.header['last-page'], 10), // 문자열 숫자로 변환, 10 = 10진수
         }),
         [LIST_POSTS_FAILURE]: (state, { payload: error }) => ({
             ...state,

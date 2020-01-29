@@ -21,8 +21,11 @@ export default function createRequestSaga(type, request) {
             const response = yield call(request, action.payload);
             // put : dispatch >>  액션 발생시키는 것 > 이후 reducer 실행
             yield put({
+                // type_SUCCESS 액션 실행
                 type: SUCCESS,
                 payload: response.data,
+                // response를 통해 HTTP 헤더 및 상태 코드를 조회 가능
+                meta: response,
             });
         } catch (e) {
             yield put({
