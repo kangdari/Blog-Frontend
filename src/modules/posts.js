@@ -34,7 +34,7 @@ const initialState = {
 // 리듀서
 const posts = handleActions(
     {
-        [LIST_POSTS_SUCCESS]: (state, { payload: posts }) => ({
+        [LIST_POSTS_SUCCESS]: (state, { payload: posts, meta: response }) => ({
             ...state,
             posts,
             lastPage: parseInt(response.header['last-page'], 10), // 문자열 숫자로 변환, 10 = 10진수
