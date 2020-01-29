@@ -10,14 +10,14 @@ const [
     LIST_POSTS,
     LIST_POSTS_SUCCESS,
     LIST_POSTS_FAILURE,
-] = createRequestActionTypes('posts/LIST_POST');
+] = createRequestActionTypes('posts/LIST_POSTS');
 // 액션 생성 함수
 export const listPosts = createAction(
     LIST_POSTS,
-    ({ page, username, tag }) => ({
-        page,
-        username,
+    ({ tag, username, page }) => ({
         tag,
+        username,
+        page,
     }),
 );
 // 사가 생성
