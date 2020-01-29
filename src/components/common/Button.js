@@ -18,6 +18,13 @@ const buttonStyle = css`
         background: ${palette.gray[6]};
     }
 
+    // 버튼 비활성화 시 css
+    &:disabled {
+        backgroun: ${palette.gray[3]};
+        color: ${palette.gray[5]};
+        cursor: not-allowed;
+    }
+
     ${props =>
         props.fullWidth &&
         css`
