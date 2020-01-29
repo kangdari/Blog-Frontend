@@ -401,7 +401,9 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     $ yarn add qs
 
-    posts 리덕스 모듈 작성( 포스트 목록 상태 조회 ) > 루트 리듀서, 루트 사가 등록 > PostListContainer 컴포넌트 작성
+    posts 리덕스 모듈 작성( 포스트 목록 상태 조회 ) > 루트 리듀서, 루트 사가 등록 > PostListContainer 컴포넌트 작성 >
+
+    PostListpage에서 PostListContainer 컴포넌트 사용 > PostList 컴포넌트에서 받아 온 props로 결과물 출력
 
 
 
