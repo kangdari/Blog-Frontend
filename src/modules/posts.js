@@ -37,7 +37,8 @@ const posts = handleActions(
         [LIST_POSTS_SUCCESS]: (state, { payload: posts, meta: response }) => ({
             ...state,
             posts,
-            lastPage: parseInt(response.header['last-page'], 10), // 문자열 숫자로 변환, 10 = 10진수
+            // last-page 소문자로 작성해야함... ??? Last-Page 오류 남 ...
+            lastPage: parseInt(response.headers['last-page'], 10), // 문자열 숫자로 변환, 10 = 10진수
         }),
         [LIST_POSTS_FAILURE]: (state, { payload: error }) => ({
             ...state,

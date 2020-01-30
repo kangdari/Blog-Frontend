@@ -13,6 +13,7 @@ export default function createRequestSaga(type, request) {
     const FAILURE = `${type}_FAILURE`;
 
     // generation 함수 사용
+    // action은 각 모듈의 action 타입
     return function*(action) {
         yield put(startLoading(type)); // 로딩 시작
         try {

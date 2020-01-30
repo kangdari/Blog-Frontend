@@ -55,6 +55,7 @@ const PostItem = ({ post }) => {
 
 const PostList = ({ posts, loading, error, showWriteButton }) => {
     if (error) {
+        console.log(error);
         return <PostListBlock>에러가 발생했습니다.</PostListBlock>;
     }
     return (
@@ -71,7 +72,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
             {!loading && posts && (
                 <div>
                     {posts.map(post => (
-                        <PostItem post={post} key={post.id} />
+                        <PostItem post={post} key={post._id} />
                     ))}
                 </div>
             )}

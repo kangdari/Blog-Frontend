@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { listPosts } from '../../modules/posts';
 import PostList from '../../components/posts/PostList';
 
-const PostListContainer = ({ location }) => {
+const PostListContainer = ({ location, match }) => {
     const dispatch = useDispatch();
     const { posts, error, loading, user } = useSelector(
         ({ posts, loading, user }) => ({
@@ -16,6 +16,12 @@ const PostListContainer = ({ location }) => {
         }),
     );
     useEffect(() => {
+        // /@:username의 경우 파라미터 값으로 읽기 때문에
+        // match.params로 값을 읽어야 한다.
+        // location.search는 쿼리를 조회할 때 사용
+        // const username2 = match.params.username;
+
+        // location.search으로 쿼리 조회 가능
         const { page, username, tag } = qs.parse(location.search, {
             ignoreQueryPrefix: true,  // ? 생략 옵션
         });

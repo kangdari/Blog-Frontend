@@ -34,11 +34,15 @@
 
             PostList.js // 포스트 목록을 보여주는 페이지 UI 컴포넌트
 
+            Pagination.js // 페이지네이션 UI
+
         write
 
             Editor.js // 제목과 내용 입력, Quill 에디터 사용
 
             TagBox.js // 에디터 하단에 태그를 추가, 포스트 작성을 완료하거나 취소하는 버튼을 보여주는 컴포넌트
+
+            WriteActionButton.js // 새로운 글 작성 버튼 UI
 
     containers // 리덕스와 연동을 위한 컴포넌트
 
@@ -61,6 +65,8 @@
 
             PostListContainer.js // PostList를 위한 컨테이너 컴포넌트, 리덕스 모듈과 연동 
                                     쿼리로부터 page, username, tag값을 얻어내고 액션 생성, PostList에 props 전달
+
+            PaginationContainer.js // Pagination를 위한 컨테이너 컴포넌트
 
         write
 
@@ -434,6 +440,67 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     payload에 response.data 값만 넣어주기 때문에 현재 구조로는 헤더를 확인 불가 >> createRequestSaga, posts 모듈 수정 
 
     Pagination 컴포넌트 작성, Button 비활성화 스타일 추가
+
+    PaginationContainer 컴포넌트 작성
+
+
+    ● pagination 설정 방법
+
+    백엔드 posts.ctrl.js 파일의 list 함수의 일부분을 수정해야한다. n은 한 페이지에 보일 포스트의 갯수
+
+    .limit(n) // 한 번에 보이는 개수를 제한
+    
+    .skip((page - 1) * n) // 파라미터 개수 만큼 제외하고 다음 데이터부터 보여줌.
+
+    ctx.set('Last-Page', Math.ceil(postCount / n)); // (전체 포스트의 갯수 / n) 의 결과값을 올림
+    
+    ● tag로 검색
+
+    post의 특정 태그를 클릭하면 해당 태그로 검색을 한다. 
+
+    location.search 함수를 사용하여 쿼리스트링에서 tag 값과 page 값을 얻어낸다.
+
+    http://localhost:3000/?tag=22&page=2
+
+    payload: {tag: "22", username: undefined, page: "2"}
+
+    ● username으로 검색
+
+    개정판에서 App 컴포넌트에서 라우트 설정을 아래와 같이 했다.
+    
+    <Route component={PostPage} path='/@:username/:postId' />
+
+    '/@:username/:postId' 와 같은 문법을 사용하면 localhost:3000/@kang와 같은 경로에서 
+
+    kang을 username의 파라미터로 읽어올 수 있다. 하지만 개정판의 PostListContainer, PaginationContainer 컴포넌트에서
+
+    username을 location.search 함수로 읽어와 사용하게 되어있는데 username은 쿼리값이 아닌 파라미터값으로 읽어와야하기 때문에 
+
+    정상적인 방법이 아닌듯 하다. 즉 username 값을 참조하기 위해서는 match 객체의 params 값으로부터 username 값을 읽어와야한다.
+
+    여러 시도를 해보았지만 의도대로 되지않아 SubInfo 컴포넌트와 Pagination 컴포넌트의 일부분을 수정했다.
+
+    SubInfo
+
+    to 속성을 쿼리스트링으로 설정함.
+
+    ```
+        {/* <Link to={`/@${username}`}>{username}</Link> */}
+        <Link to={`/?username=${username}`}>{username}</Link>
+    ```
+
+    Pagination
+
+    ```
+    const buildLink = ({ username, tag, page }) => {
+        const query = qs.stringify({ tag, page });
+        // return username ? `/@${username}?${query}` : `/?${query}`;
+        // SubInfo 컴포넌트에서 Link의 to 속성을 username이 포함된 쿼리스트링으로 작성
+        return username ? `/?username=${username}&${query}` : `/?${query}`;
+    };
+    ```
+
+    이와 같이 설정하여 username 클릭 시 해당 user가 작성한 postList들만 확인이 가능하다.
 
 
 

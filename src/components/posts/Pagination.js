@@ -13,7 +13,10 @@ const PaginationBlock = styled.div`
 const PageNumber = styled.div``;
 const buildLink = ({ username, tag, page }) => {
     const query = qs.stringify({ tag, page });
-    return username ? `/@${username}?${query}` : `/${query}`;
+    // return username ? `/@${username}?${query}` : `/?${query}`;
+
+    // SubInfo 컴포넌트에서 Link의 to 속성을 username이 포함된 쿼리스트링으로 작성
+    return username ? `/?username=${username}&${query}` : `/?${query}`;
 };
 
 // props: 현재 페이지 숫자, 마지막 페이지 숫자, 현재 계정명, 태그

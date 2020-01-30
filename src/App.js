@@ -11,10 +11,10 @@ function App() {
     <>
       {/* [] path를 배열 형태로 넣어 줌. 한 라우트 컴포넌트에서 여러 개의 경로를 설정 가능 */}
       <Route component={PostListPage} path={['/@:username', '/']} exact />
-      <Route component={PostPage} path={'/@:username/:postId'} />
-      <Route component={LoginPage} path={'/login'} />
-      <Route component={RegisterPage} path={'/register'} />
-      <Route component={WritePage} path={'/write'} />
+      <Route component={LoginPage} path='/login' />
+      <Route component={RegisterPage} path='/register' />
+      <Route component={WritePage} path='/write' />
+      <Route component={PostPage} path='/@:username/:postId' />
     </>
   );
 }
