@@ -30,6 +30,8 @@
         
             PostViewer.js // 작성한 포스트를 읽는 페이지 UI
 
+            PostActionButtons.js // 포스트 수정, 삭제 버튼을 보여주는 UI
+
         posts
 
             PostList.js // 포스트 목록을 보여주는 페이지 UI 컴포넌트
@@ -502,5 +504,14 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     이와 같이 설정하여 username 클릭 시 해당 user가 작성한 postList들만 확인이 가능하다.
 
+## 수정 및 삭제 기능 구현, 마무리
 
+### 포스트 수정
 
+    포스트를 읽는 화면에서 포스트 작성자에게만 수정, 삭제 버튼이 나타나도록 렌더링 하겠습니다.
+
+    PostActionButton 컴포넌트를 작성. 수정, 삭제 버튼 UI 컴포넌트
+
+    이 컴포넌트는 PostViewer의 PostHead 하단에 보여주어야 합니다. 그런데 PostViewer에서 이 컴포넌트를 직접 렌더링할려면, PostViewe에서 사용하지 않는 이 컴포넌트의 props도 함께 PostViewer에 전달되어야 합니다.
+
+    이러한 방법은 props가 많아지면 관리가 힘들기 때문에 props를 JSX 형태로 받아 와서 렌더링하는 방법을 사용하겠습니다. 
