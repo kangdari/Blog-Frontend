@@ -520,3 +520,38 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
         actionButtons={<PostActionButtons/>} // 컴포넌트를 props로 전달
     ```
 
+    ● 수정 버튼 클릭 시 글쓰기 페이지 이동
+
+    수정 버튼 클릭 시 글쓰기 페이지로 이동하고, 현재 보고 있는가 나타나게 하겠습니다.
+
+    write 리덕스 모듈에서 SET_ORIGINAL_POST 액션을 생성하고, 이 액션은 현재 보고 있는 포스트 정보를 write 모듈에서 관리하는 상태에 넣습니다.
+
+    현재 사용자가 보고 있는 포스트가 자신이 작성한 포스트일 때만 수정, 삭제 버튼이 보이도록 ownPost 라는 props값을 
+    
+    PostViewerContainer에서 PostViewer에 전달해줍니다. 
+
+    수정 버튼 클릭 시 제목, 태그 만 자동으로 입력되고 내용은 공백으로 나타납니다.
+
+    내용의 초깃값도 설정되도록 Editor 컴포넌트를 수정
+
+    
+    ```
+    const mounted = useRef(false); 
+    useEffect(()=>{
+        if(mounted.current) return; // mounted.current 값이 false일 때만 실행 됨.
+        mounted.current = true;
+        quillInstance.current.root.innerHTML = body;
+    }, [body])
+    ```
+
+    Editor 컴포넌트에서 받아 오는 body값은 Quill 에디터에서 내용을 입력할 때마다 변경됩니다.
+
+    body가 변경될 때마다 방금 작성한 useEffect에 등록한 함수가 호출됩니다. 하지만 우리는 컴포넌트가 화면에 마운트되고 (수정 버튼을 누르고 기존의 내용들이 렌더링될 때)
+
+    단 한 번만 useEffect에 등록한 작업이 실행되도록 설정해주어야 하므로 useRef를 사용하여 mount 상태에 따라 작업을 처리하겠습니다.
+
+    ( useref를 통해 만든 객체 안의 current 값은 실제 엘리먼트 값입니다. )
+
+
+
+

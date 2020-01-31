@@ -6,6 +6,7 @@ import { takeLatest } from 'redux-saga/effects';
 // 액션 타입 선언
 const INITIAILIZE = 'write/INITIAILIZE'; // 내용 초기화
 const CHANGE_FILED = 'write/CHANGE_FILED'; // 특정 key 바꾸기
+const SET_ORIGINAL_POST = 'write/SET_ORIGINAL_POST';
 // 포스트 작성
 const WRITE_POST = 'write/WRITE_POST';
 const WRITE_POST_SUCCESS = 'write/WRITE_POST_SUCCESS';
@@ -22,6 +23,7 @@ export const writePost = createAction(WRITE_POST, ({ title, body, tags }) => ({
     body,
     tags,
 }));
+export const setOriginalPost = createAction(SET_ORIGINAL_POST, post => post);
 
 // 사가 생성
 // request = API 함수
@@ -32,10 +34,11 @@ export function* writeSaga() {
 
 const initialState = {
     title: '',
-    body: '',   
+    body: '',
     tags: [],
     post: null,
     postError: null,
+    originalPostId: null,
 };
 
 // 리듀서
@@ -63,6 +66,12 @@ const write = handleActions(
         [WRITE_POST_FAILURE]: (state, { payload: postError }) => ({
             ...state,
             postError,
+        }),
+        [SET_ORIGINAL_POST]: (state, { payload: post }) => ({
+            title: post.title,
+            body: post.body,
+            tags: post.tags,
+            originalPostId: post._id,
         }),
     },
     initialState,

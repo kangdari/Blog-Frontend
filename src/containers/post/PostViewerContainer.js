@@ -4,16 +4,18 @@ import { withRouter } from 'react-router-dom'; // URL 파라미터 match 객체�
 import { readPost, unloadPost } from '../../modules/post';
 import PostViewer from '../../components/post/PostViewer';
 import PostActionButtons from '../../components/post/PostActionButtons';
+import { setOriginalPost } from '../../modules/write';
 
-const PostViewerContainer = ({ match }) => {
+const PostViewerContainer = ({ match, history }) => {
     const dispatch = useDispatch();
     // 처음 마운트될 때 포스트 읽기 API 요청
     const { postId } = match.params;
     // post, loading 모듈
-    const { post, error, loading } = useSelector(({ post, loading }) => ({
+    const { post, error, loading, user } = useSelector(({ post, loading, user }) => ({
         post: post.post,
         error: post.error,
         loading: loading['post/READ_POST'], // ???
+        user: user.user
     }));
 
     useEffect(() => {
@@ -25,12 +27,19 @@ const PostViewerContainer = ({ match }) => {
         };
     }, [dispatch, postId]);
 
+    const onEdit = () => {
+        dispatch(setOriginalPost(post));
+        history.push('/write'); // write 페이지 이동
+    };
+
     return (
         <PostViewer
             post={post}
             loading={loading}
             error={error}
-            actionButtons={<PostActionButtons/>} // 컴포넌트를 props로 전달
+            actionButtons={<PostActionButtons onEdit={onEdit} />} // 컴포넌트를 props로 전달
+            // 현재 사용자가 보고 있는 포스트가 자신의 포스트 인지 체크 
+            ownPost = {user && post && user._id === post.user._id} 
         />
     );
 };

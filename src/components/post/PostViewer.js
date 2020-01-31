@@ -23,7 +23,8 @@ const PostContent = styled.div`
     color: ${palette.gray[8]};
 `;
 
-const PostViewer = ({ post, error, loading, actionButtons }) => {
+const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
+    console.log(ownPost)
     // 에러 발생 시
     if (error) {
         if (error.response && error.response.status === 404) {
@@ -40,7 +41,6 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
     }
 
     const { title, body, user, publishDate, tags } = post;
-    console.log(actionButtons)
     return (
         <PostViewerBlock>
             <PostHead>
@@ -52,7 +52,8 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
                 />
                 <Tags tags={tags} />
             </PostHead>
-            {actionButtons}
+            {/* 현재 유저와 post 작성자가 같을 때 버튼 보임 */}
+            {ownPost && actionButtons}
             <PostContent
                 dangerouslySetInnerHTML={{
                     __html: body,

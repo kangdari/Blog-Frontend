@@ -58,6 +58,14 @@ const Editor = ({ title, body, onChangeField }) => {
         });
     }, [onChangeField]);
 
+    //useRef를 통해 만든 객체 안의 current 값은 실제 엘리먼트 값
+    const mounted = useRef(false); 
+    useEffect(()=>{
+        if(mounted.current) return; // mounted.current 값이 false일 때만 실행 됨.
+        mounted.current = true;
+        quillInstance.current.root.innerHTML = body;
+    }, [body])
+
     // title은 input
     const onChangeTitle = e => {
         onChangeField({ key: 'title', value: e.target.value });
