@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
+import AskRemoveModal from './AskRemoveModal';
 
 const PostActionButtonsBlock = styled.div`
     display: flex;
@@ -26,12 +27,35 @@ const ActionButton = styled.button`
     }
 `;
 
-const PostActionButtons = ({ onEdit }) => {
+// PostActionButtonsContainer로부터 props 전달받음
+const PostActionButtons = ({ onEdit, onRemove }) => {
+    // modal 창 
+    const [modal, setModal] = useState(false);
+    // 모달 창 on
+    const onRemoveClick = () => {
+        setModal(true)
+    }
+    // 모달 창 off
+    const onCancel = () =>{
+        setModal(false);
+    }
+    // 모달 창에서 삭제 클릭
+    const onConfirm = () =>{
+        setModal(false); // 모달 창 off
+        onRemove(); // 포스트 삭제 API 호출
+    }
     return (
-        <PostActionButtonsBlock>
-            <ActionButton onClick={onEdit}>수정</ActionButton>
-            <ActionButton>삭제</ActionButton>
-        </PostActionButtonsBlock>
+        <>
+            <PostActionButtonsBlock>
+                <ActionButton onClick={onEdit}>수정</ActionButton>
+                <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
+            </PostActionButtonsBlock>
+            <AskRemoveModal 
+                visible={modal}
+                onCancel={onCancel}
+                onConfirm={onConfirm}
+            />
+        </>
     );
 };
 

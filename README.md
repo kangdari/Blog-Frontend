@@ -26,6 +26,8 @@
 
             Tags.js // PostList와 PostViewer에서 공통으로 사용되는 컴포넌트
 
+            AskModal.js // 모달 컴포넌트, 이 프로젝트에서는 사용자의 요청을 한번 더 확인하기 위해 사용
+
         post
         
             PostViewer.js // 작성한 포스트를 읽는 페이지 UI
@@ -560,6 +562,11 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     WriteActionButton 컴포넌트에서 isEdit(originalPostId 존재 여부) 값에 따라 서로 다른 문구 출력
 
+### 포스트 삭제
 
+    삭제 버튼 클릭 시 사용자의 확인을 한번 더 요청하기 위해 모달창을 보여주는 방식으로 삭제 기능을 구현하겠습니다.
 
+    common/AskModal 컴포넌트 작성
+
+    
 
