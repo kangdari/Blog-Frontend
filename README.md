@@ -515,3 +515,8 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
     이 컴포넌트는 PostViewer의 PostHead 하단에 보여주어야 합니다. 그런데 PostViewer에서 이 컴포넌트를 직접 렌더링할려면, PostViewe에서 사용하지 않는 이 컴포넌트의 props도 함께 PostViewer에 전달되어야 합니다.
 
     이러한 방법은 props가 많아지면 관리가 힘들기 때문에 props를 JSX 형태로 받아 와서 렌더링하는 방법을 사용하겠습니다. 
+
+    ```
+        actionButtons={<PostActionButtons/>} // 컴포넌트를 props로 전달
+    ```
+
