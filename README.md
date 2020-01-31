@@ -552,6 +552,14 @@ src/components/auth 디렉토리에 회원 인증에 관련된 컴포넌트 작�
 
     ( useref를 통해 만든 객체 안의 current 값은 실제 엘리먼트 값입니다. )
 
+    ● 포스트 작성 API 대신 수정 API 사용
+
+    api/posts.js에 updatePost 함수 작성 > write 리덕스 모듈에서 UPDATE_POST 액션과 updatePostSaga 작성 >
+
+    WriteActionButtonsContainer 컴포넌트에서 수정 버튼 클릭 시 설정되는 originalPostId 값을 사용하는 작업 코드 작성 >
+
+    WriteActionButton 컴포넌트에서 isEdit(originalPostId 존재 여부) 값에 따라 서로 다른 문구 출력
+
 
 
 

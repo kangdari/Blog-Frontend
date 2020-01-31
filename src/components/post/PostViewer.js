@@ -24,7 +24,6 @@ const PostContent = styled.div`
 `;
 
 const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
-    console.log(ownPost)
     // 에러 발생 시
     if (error) {
         if (error.response && error.response.status === 404) {
